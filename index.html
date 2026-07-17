@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>پروپوزال نهایی پلتفرم بیزنس کوچینگ صادرات (نسخه ۳.۰)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0F4C5C;
+            --primary-light: #1A6E82;
+            --primary-dark: #0A2E3A;
+            --accent: #D48C2C;
+            --accent-light: #F0A83A;
+            --bg: #F4F8FA;
+            --surface: rgba(255, 255, 255, 0.65);
+            --surface-solid: #FFFFFF;
+            --text: #1A2E3A;
+            --text-secondary: #3A5A6A;
+            --text-muted: #7A9AAA;
+            --border: rgba(208, 222, 232, 0.4);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --shadow: 0 8px 32px rgba(15, 76, 92, 0.06);
+            --shadow-lg: 0 20px 60px rgba(15, 76, 92, 0.10);
+            --glass-bg: rgba(255, 255, 255, 0.5);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --highlight-bg: #FFF8E1;
+            --highlight-border: #F59E0B;
+            --gift-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            --gift-gold: #FFD700;
+            --bplus-bg: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1e88e5 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 15px;
+            transition: background var(--transition), color var(--transition);
+            overflow-x: hidden;
+            padding: 0 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .update-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .highlight-box {
+            background: var(--highlight-bg);
+            border-right: 4px solid var(--highlight-border);
+            padding: 20px 24px;
+            border-radius: var(--radius-sm);
+            margin: 20px 0;
+        }
+        .new-section {
+            border: 2px dashed var(--accent);
+            padding: 20px 24px;
+            border-radius: var(--radius);
+            background: rgba(212, 140, 44, 0.04);
+            position: relative;
+        }
+        .new-section::before {
+            content: "🆕 به‌روزرسانی";
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent);
+            color: #fff;
+            padding: 0 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        .change-indicator {
+            background: #E8F5E9;
+            border-right: 3px solid #2E7D32;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            margin: 10px 0;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            border-radius: var(--radius);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 700;
+            position: relative;
+        }
+        .hero .subtitle {
+            font-size: 18px;
+            opacity: 0.85;
+            margin-top: 8px;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: var(--accent);
+            padding: 6px 28px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 16px;
+            box-shadow: 0 4px 20px rgba(212, 140, 44, 0.3);
+        }
+
+        .toc {
+            background: var(--surface);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 32px;
+            margin: -30px auto 40px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 10;
+        }
+        .toc h2 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 16px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 6px;
+        }
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+        .toc a:hover {
+            background: var(--bg);
+            color: var(--primary);
+        }
+        .toc a .num {
+            display: inline-flex;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .section {
+            background: var(--surface);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .section h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section h2 .icon {
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 24px 0 12px;
+        }
+        .section p {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+        .section ul, .section ol {
+            margin: 8px 0 16px 24px;
+            color: var(--text-secondary);
+        }
+        .section li {
+            margin-bottom: 6px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .card {
+            background: var(--surface-solid);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+        .card .card-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--surface-solid);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 12px 16px;
+            text-align: right;
+            font-weight: 600;
+        }
+        td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+        tr:nth-child(even) {
+            background: var(--bg);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-green { background: #E8F5E9; color: #2E7D32; }
+        .badge-red { background: #FFEBEE; color: #C62828; }
+        .badge-blue { background: #E3F2FD; color: #1565C0; }
+        .badge-orange { background: #FFF3E0; color: #E65100; }
+        .badge-purple { background: #F3E5F5; color: #6A1B9A; }
+        .badge-gold { background: #FFF8E1; color: #F57F17; }
+        .badge-gift { background: linear-gradient(135deg, #FFD700, #FFA500); color: #1a1a2e; }
+        .badge-bplus { background: linear-gradient(135deg, #1e88e5, #0d47a1); color: #fff; }
+
+        .feature-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-right: 6px;
+        }
+
+        .gift-section {
+            background: var(--gift-bg);
+            border-radius: var(--radius);
+            padding: 40px 36px;
+            margin: 20px 0;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--gift-gold);
+        }
+        .gift-section::before {
+            content: "🎁";
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.08;
+            left: -20px;
+            bottom: -30px;
+            transform: rotate(-15deg);
+        }
+        .gift-section h3 {
+            color: var(--gift-gold);
+            font-size: 24px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .gift-section .gift-badge {
+            display: inline-block;
+            background: var(--gift-gold);
+            color: #1a1a2e;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .gift-section ul li {
+            color: rgba(255,255,255,0.85);
+        }
+        .gift-value {
+            display: inline-block;
+            background: rgba(255,215,0,0.15);
+            border: 1px solid var(--gift-gold);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gift-gold);
+            margin-top: 10px;
+        }
+
+        .bplus-section {
+            background: var(--bplus-bg);
+            border-radius: var(--radius);
+            padding: 40px 36px;
+            margin: 20px 0;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #42a5f5;
+        }
+        .bplus-section::before {
+            content: "🤖";
+            position: absolute;
+            font-size: 140px;
+            opacity: 0.06;
+            left: -30px;
+            bottom: -40px;
+            transform: rotate(-10deg);
+        }
+        .bplus-section h3 {
+            color: #90caf9;
+            font-size: 24px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .bplus-section .bplus-badge {
+            display: inline-block;
+            background: #42a5f5;
+            color: #fff;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .bplus-section ul li {
+            color: rgba(255,255,255,0.85);
+        }
+        .bplus-value {
+            display: inline-block;
+            background: rgba(66,165,245,0.15);
+            border: 1px solid #42a5f5;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #90caf9;
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 28px; }
+            .section { padding: 24px; }
+            .toc-grid { grid-template-columns: 1fr; }
+            .gift-section, .bplus-section { padding: 24px 18px; }
+        }
+        @media print {
+            .update-badge, .new-section::before { display: none; }
+            .section { background: white !important; border: 1px solid #ccc !important; }
+            .hero { background: #0F4C5C !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .gift-section { background: #1a1a2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .bplus-section { background: #0d47a1 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>پروپوزال نهایی پلتفرم بیزنس کوچینگ صادرات</h1>
+        <div class="subtitle">نسخه ۳.۰ — مبتنی بر نتایج جلسه مورخ ۲۳ تیر ۱۴۰۵ و مستندات تکمیلی کارفرما</div>
+        <div class="badge">نسخه ۳.۰ | مرداد ۱۴۰۵</div>
+    </div>
+
+    <div class="toc">
+        <h2>فهرست مطالب</h2>
+        <div class="toc-grid">
+            <a href="#s1"><span class="num">۱</span> خلاصه اجرایی</a>
+            <a href="#s2"><span class="num">۲</span> بازنگری اهداف و محدوده</a>
+            <a href="#s3"><span class="num">۳</span> معماری فنی نهایی</a>
+            <a href="#s4"><span class="num">۴</span> فازبندی پروژه</a>
+            <a href="#s5"><span class="num">۵</span> جدول زمان‌بندی</a>
+            <a href="#s6"><span class="num">۶</span> برنامه اجرایی (Action Plan)</a>
+            <a href="#s7"><span class="num">۷</span> مدیریت ریسک و کیفیت</a>
+            <a href="#s8"><span class="num">۸</span> نقشه راه هزینه و شرایط همکاری</a>
+            <a href="#s9"><span class="num">۹</span> گزینه ویژه: ربات بله بیزنس کوچینگ</a>
+        </div>
+    </div>
+
+    <div class="section" id="s1">
+        <h2><span class="icon">۱</span> خلاصه اجرایی <span class="update-badge">به‌روزرسانی</span></h2>
+        <div class="highlight-box">
+            <strong>🔹 نتیجه جلسه مورخ ۲۳ تیر ۱۴۰۵:</strong> طرفین به توافق رسیدند که سیستم فراتر از یک چت‌بات، به‌عنوان <strong>دستیار هوشمند شنیداری-تحلیلی (AI Meeting Assistant)</strong> عمل کند. کارفرما متعهد به ارائه فایل‌های اکسل، ورد و ویدیوهای آموزشی شد (انجام شده) و تیم Code Packs پروپوزال را بر اساس اطلاعات جدید به‌روزرسانی کرد.
+        </div>
+        <p><strong>پلتفرم بیزنس کوچینگ صادرات</strong> یک سامانه تحت وب است که با ترکیب <strong>PHP، JavaScript، n8n، Cloud Code و OpenAI API (Whisper + GPT-4)</strong>، فرآیند دریافت داده‌های خام کسب‌وکارهای صادراتی، تحلیل آن‌ها بر اساس شاخص‌های کلیدی (KPI) و تولید پیشنهادهای اجرایی عملیاتی را خودکار می‌کند.</p>
+        <p><strong>نوآوری کلیدی (نسخه ۳.۰):</strong> این پلتفرم با <strong>تحلیل خودکار جلسات ضبط‌شده</strong> و <strong>استخراج تسک‌های عملیاتی</strong>، به مدیران کمک می‌کند تا مصوبات جلسات را به‌سرعت پیگیری کنند و فرآیندهای تصمیم‌گیری را شفاف‌سازی نمایند.</p>
+
+        <h3>اهداف کلیدی پروژه (بازنگری‌شده)</h3>
+        <div class="card-grid">
+            <div class="card"><div class="card-title">🎙️ تحلیل صوت جلسات <span class="feature-tag">NEW</span></div><p>تبدیل ویس به متن با Whisper، تحلیل عمیق با GPT-4 و استخراج خودکار تسک‌ها</p></div>
+            <div class="card"><div class="card-title">✅ تولید خودکار تسک <span class="feature-tag">NEW</span></div><p>تشخیص تصمیمات و وظایف از دل جلسات و ثبت خودکار در سیستم مدیریت وظایف</p></div>
+            <div class="card"><div class="card-title">📊 تحلیل هوشمند داده</div><p>دریافت داده از منابع مختلف (فایل، API، فرم) و تحلیل خودکار با استفاده از OpenAI</p></div>
+            <div class="card"><div class="card-title">🎯 تولید پیشنهاد اجرایی</div><p>تبدیل تحلیل‌ها به اقدامات عملی و اولویت‌بندی شده برای تیم‌های فروش، بازاریابی و مدیریت صادرات</p></div>
+            <div class="card"><div class="card-title">📋 مدیریت اداری</div><p>ثبت جلسات، صورت‌جلسات، پیگیری وظایف و یکپارچه‌سازی با فرآیندهای کوچینگ</p></div>
+            <div class="card"><div class="card-title">🤖 چت‌بات کوچینگ</div><p>دستیار هوشمند مبتنی بر OpenAI برای پاسخ به سوالات مدیریتی و ارائه مشاوره لحظه‌ای</p></div>
+        </div>
+    </div>
+
+    <div class="section new-section" id="s2">
+        <h2><span class="icon">۲</span> بازنگری اهداف و محدوده پروژه <span class="update-badge">جدید</span></h2>
+        <div class="change-indicator">✅ بر اساس نتایج جلسه و مستندات تکمیلی کارفرما</div>
+
+        <h3>اهداف استراتژیک</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>هدف</th><th>شرح</th></tr>
+                <tr><td><strong>تحلیل خودکار جلسات</strong></td><td>تبدیل فایل‌های صوتی جلسات (MP3, WAV, M4A, OGG) به متن با استفاده از Whisper API و تحلیل عمیق با GPT-4</td></tr>
+                <tr><td><strong>استخراج خودکار تسک</strong></td><td>شناسایی تصمیمات، وظایف، مسئولین، مهلت‌ها و اولویت‌ها از دل متن جلسات و ثبت خودکار در سیستم مدیریت وظایف</td></tr>
+                <tr><td><strong>دستیار هوشمند کوچینگ</strong></td><td>ارائه پیشنهادات اجرایی، تحلیل KPIها، و مشاوره مدیریتی مبتنی بر دانش اختصاصی بیزینس کوچینگ صادرات</td></tr>
+                <tr><td><strong>اتوماسیون فرآیندهای اداری</strong></td><td>یکپارچه‌سازی با n8n برای ارسال اعلان، زمان‌بندی، و همگام‌سازی با سیستم‌های خارجی</td></tr>
+                <tr><td><strong>داشبورد مدیریتی جامع</strong></td><td>نمایش KPIها، وضعیت تسک‌ها، تحلیل جلسات، و پیشنهادات در یک پنل یکپارچه</td></tr>
+            </table>
+        </div>
+
+        <h3>محدوده پروژه (Scope)</h3>
+        <p><strong>شامل:</strong></p>
+        <ul>
+            <li>طراحی و پیاده‌سازی هسته بک‌اند با PHP 8.x (بدون فریم‌ورک)</li>
+            <li>پایگاه داده MySQL با ۴۲ جدول (شامل ۶ جدول جدید برای تحلیل صوت و تسک‌ها)</li>
+            <li>یکپارچه‌سازی با OpenAI API (Whisper + GPT-4)</li>
+            <li>پیاده‌سازی Cloud Code (سرورلس) برای پردازش‌های سنگین</li>
+            <li>راه‌اندازی n8n برای اتوماسیون و یکپارچه‌سازی</li>
+            <li>طراحی فرانت‌اند واکنش‌گرا با قابلیت دارک‌مود</li>
+            <li>سیستم احراز هویت با شماره همراه و OTP</li>
+            <li>پنل مدیریت کامل</li>
+            <li>مستندسازی فنی و کاربردی</li>
+        </ul>
+        <p><strong>خارج از محدوده:</strong></p>
+        <ul>
+            <li>توسعه اپلیکیشن موبایل (قابل اضافه شدن در فازهای بعدی)</li>
+            <li>یکپارچه‌سازی با سیستم‌های مالی/حسابداری خاص (با توافق جداگانه قابل انجام)</li>
+        </ul>
+    </div>
+
+    <div class="section" id="s3">
+        <h2><span class="icon">۳</span> معماری فنی نهایی (نسخه ۳.۰) <span class="update-badge">به‌روزرسانی</span></h2>
+        <div class="highlight-box">
+            <strong>رویکرد ترکیبی هوشمند:</strong> هسته اصلی با PHP خام (بدون فریم‌ورک) پیاده‌سازی می‌شود تا سادگی، سرعت و سازگاری با هاست‌های اشتراکی حفظ شود. <strong>n8n</strong> به‌عنوان موتور اتوماسیون و اتصال به سرویس‌های خارجی عمل می‌کند. <strong>Cloud Code</strong> برای پردازش‌های سنگین مانند تحلیل صوت و تعامل با مدل‌های OpenAI استفاده می‌شود. <strong>OpenAI API</strong> با استفاده از <strong>Whisper</strong> برای تبدیل صوت به متن و <strong>GPT-4</strong> برای تحلیل و تولید تسک به کار می‌رود.
+        </div>
+
+        <h3>تکنولوژی‌ها و نقش‌ها</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>لایه</th><th>تکنولوژی</th><th>نقش در پروژه</th></tr>
+                <tr><td>فرانت‌اند</td><td>HTML5 + CSS3 + Vanilla JS (Chart.js, Axios)</td><td>رابط کاربری RTL، واکنش‌گرا، دارک‌مود</td></tr>
+                <tr><td>بک‌اند اصلی</td><td>PHP 8.x (خام، بدون فریم‌ورک)</td><td>مدیریت درخواست‌ها، اعتبارسنجی، ارتباط با دیتابیس، لاگین</td></tr>
+                <tr><td>دیتابیس</td><td>MySQL 8+ (PDO)</td><td>ذخیره داده‌های ساختاریافته (کاربران، KPIها، گزارش‌ها، تسک‌ها)</td></tr>
+                <tr><td>اتوماسیون</td><td>n8n (خودمیزبان یا ابری)</td><td>اتصال به APIهای خارجی، زمان‌بندی تسک‌ها، ارسال اعلان</td></tr>
+                <tr><td>پردازش سنگین</td><td>Cloud Code (AWS Lambda / Azure Functions)</td><td>تحلیل صوت، پردازش داده‌های حجیم، تعامل با OpenAI در مقیاس</td></tr>
+                <tr><td>تبدیل صوت</td><td>OpenAI Whisper API</td><td>تبدیل فایل‌های صوتی جلسات به متن قابل تحلیل</td></tr>
+                <tr><td>پردازش هوشمند</td><td>OpenAI API (GPT-4 / GPT-3.5-turbo)</td><td>تحلیل متن جلسات، تولید پیشنهادات، چت‌بات، خلاصه‌سازی، استخراج تسک</td></tr>
+                <tr><td>صف و تسک‌ها</td><td>Redis + PHP-Resque</td><td>مدیریت صف و اجرای تسک‌های زمان‌بر</td></tr>
+            </table>
+        </div>
+
+        <h3>جدول‌های جدید دیتابیس برای تحلیل صوت</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>نام جدول</th><th>توضیح</th></tr>
+                <tr><td><code>audio_files</code></td><td>ذخیره فایل‌های صوتی آپلود شده</td></tr>
+                <tr><td><code>audio_transcripts</code></td><td>متن استخراج شده از صوت (Whisper)</td></tr>
+                <tr><td><code>audio_analysis</code></td><td>تحلیل عمیق جلسه (GPT-4)</td></tr>
+                <tr><td><code>auto_tasks</code></td><td>تسک‌های استخراج شده از جلسه</td></tr>
+                <tr><td><code>auto_task_logs</code></td><td>تاریخچه وضعیت تسک‌های خودکار</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="section new-section" id="s4">
+        <h2><span class="icon">۴</span> فازبندی پروژه – نقشه اجرایی گام‌به‌گام <span class="update-badge">جدید</span></h2>
+        <div class="change-indicator">✅ مبتنی بر نتایج جلسه و توافقات طرفین</div>
+
+        <div class="table-wrapper">
+            <table>
+                <tr><th>فاز</th><th>عنوان</th><th>مدت</th><th>شرح</th><th>خروجی‌های کلیدی</th></tr>
+                <tr><td><strong>فاز ۰</strong></td><td>آشنایی با فرآیندها و دریافت مستندات</td><td>۱ هفته (انجام شده)</td><td>دریافت فایل‌های اکسل، ورد و ویدیوهای آموزشی از کارفرما؛ تحلیل اولیه فرآیندها</td><td>مستندات دریافتی؛ درک کامل از جریان‌های کاری</td></tr>
+                <tr><td><strong>فاز ۱</strong></td><td>آزمون و خطا با ۵ کسب‌وکار فرضی</td><td>۴ هفته</td><td>تعریف ۵ سناریوی کسب‌وکار فرضی؛ شبیه‌سازی فرآیندها؛ شناسایی نیازهای واقعی؛ تدوین پروپوزال نهایی</td><td>گزارش تحلیل سناریوها؛ پروپوزال نهایی مصوب</td></tr>
+                <tr><td><strong>فاز ۲</strong></td><td>توسعه MVP (نسخه نیمه‌هوشمند)</td><td>۶ هفته</td><td>پیاده‌سازی هسته بک‌اند، احراز هویت، ماژول آپلود صوت، اتصال اولیه به Whisper و GPT، مدیریت تسک‌های دستی</td><td>MVP قابل ارائه با قابلیت آپلود و تحلیل ساده</td></tr>
+                <tr><td><strong>فاز ۳</strong></td><td>طراحی API و Endpoint‌ها</td><td>۴ هفته</td><td>طراحی و پیاده‌سازی APIهای امن برای ارتباط با فرانت‌اند، n8n و Cloud Code</td><td>مستندات API (Swagger/OpenAPI)؛ تست‌های یکپارچه‌سازی</td></tr>
+                <tr><td><strong>فاز ۴</strong></td><td>هسته هوش مصنوعی و ML</td><td>۶ هفته</td><td>توسعه پرامپت‌های تخصصی برای تحلیل جلسات، استخراج تسک، تشخیص مسئول و مهلت؛ بهینه‌سازی دقت</td><td>موتور تحلیل با دقت >۸۵٪ در استخراج تسک</td></tr>
+                <tr><td><strong>فاز ۵</strong></td><td>اتصال و اتوماسیون کامل</td><td>۴ هفته</td><td>یکپارچه‌سازی n8n برای ارسال اعلان، زمان‌بندی، و همگام‌سازی با CRM/تقویم؛ راه‌اندازی Cloud Code برای پردازش موازی</td><td>اتوماسیون کامل جلسات و تسک‌ها</td></tr>
+                <tr><td><strong>فاز ۶</strong></td><td>دیباگ، تست و ارائه</td><td>۴ هفته</td><td>تست‌های نفوذ، بار، کارایی؛ رفع باگ‌ها؛ آموزش تیم کارفرما؛ ارائه نسخه نهایی</td><td>سیستم پایدار و آماده بهره‌برداری</td></tr>
+                <tr><td><strong>فاز ۷</strong></td><td>تکمیل و تصمیم‌گیری نهایی</td><td>۲ هفته</td><td>جمع‌بندی نتایج، استقرار بر روی سرور اصلی، انتقال دانش، پشتیبانی اولیه</td><td>استقرار نهایی؛ جلسه تحویل</td></tr>
+            </table>
+        </div>
+        <p><strong>مجموع مدت:</strong> حدود ۳۱ هفته (حدود ۸ ماه)</p>
+    </div>
+
+    <div class="section new-section" id="s5">
+        <h2><span class="icon">۵</span> جدول زمان‌بندی پروژه (Timeline) <span class="update-badge">جدید</span></h2>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>فاز</th><th>فعالیت‌های کلیدی</th><th>تاریخ شروع</th><th>تاریخ پایان</th><th>مدت (هفته)</th><th>نقاط عطف</th></tr>
+                <tr><td>فاز ۰</td><td>دریافت مستندات؛ تحلیل اولیه</td><td>۲۳ تیر ۱۴۰۵</td><td>۳۰ تیر ۱۴۰۵</td><td>۱</td><td>مستندات دریافتی و تحلیل شده</td></tr>
+                <tr><td>فاز ۱</td><td>تعریف ۵ سناریو؛ شبیه‌سازی؛ تدوین پروپوزال نهایی</td><td>۳۱ تیر ۱۴۰۵</td><td>۲۷ مرداد ۱۴۰۵</td><td>۴</td><td>پروپوزال نهایی مصوب</td></tr>
+                <tr><td>فاز ۲</td><td>توسعه MVP (بک‌اند، احراز هویت، آپلود صوت، Whisper، تسک‌ها)</td><td>۲۸ مرداد ۱۴۰۵</td><td>۸ مهر ۱۴۰۵</td><td>۶</td><td>MVP قابل ارائه</td></tr>
+                <tr><td>فاز ۳</td><td>طراحی و پیاده‌سازی APIها</td><td>۹ مهر ۱۴۰۵</td><td>۵ آبان ۱۴۰۵</td><td>۴</td><td>مستندات API؛ تست‌های یکپارچه</td></tr>
+                <tr><td>فاز ۴</td><td>هسته AI (پرامپت‌ها، استخراج تسک، بهینه‌سازی)</td><td>۶ آبان ۱۴۰۵</td><td>۱۶ آذر ۱۴۰۵</td><td>۶</td><td>دقت استخراج >۸۵٪</td></tr>
+                <tr><td>فاز ۵</td><td>اتوماسیون n8n و Cloud Code</td><td>۱۷ آذر ۱۴۰۵</td><td>۱۴ دی ۱۴۰۵</td><td>۴</td><td>اتوماسیون کامل</td></tr>
+                <tr><td>فاز ۶</td><td>تست، دیباگ، آموزش، ارائه</td><td>۱۵ دی ۱۴۰۵</td><td>۱۱ بهمن ۱۴۰۵</td><td>۴</td><td>سیستم پایدار؛ تیم آموزش‌دیده</td></tr>
+                <tr><td>فاز ۷</td><td>استقرار نهایی، انتقال دانش، پشتیبانی اولیه</td><td>۱۲ بهمن ۱۴۰۵</td><td>۲۵ بهمن ۱۴۰۵</td><td>۲</td><td>استقرار موفق؛ تحویل نهایی</td></tr>
+            </table>
+        </div>
+        <p><strong>تاریخ تحویل نهایی:</strong> ۲۵ بهمن ۱۴۰۵</p>
+    </div>
+
+    <div class="section new-section" id="s6">
+        <h2><span class="icon">۶</span> برنامه اجرایی تفصیلی (Action Plan) مبتنی بر چارچوب Export Mastery <span class="update-badge">جدید</span></h2>
+        <div class="change-indicator">✅ برگرفته از مستندات Road Map Starter و Action Plan کارفرما</div>
+
+        <h3>اولویت‌بندی سیستم‌ها در فصل اول (بر اساس نتایج جلسه)</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>اولویت</th><th>سیستم</th><th>شرح فعالیت‌های کلیدی در فصل اول</th></tr>
+                <tr><td>۱</td><td><strong>مدیریت محصول</strong></td><td>انتخاب محصول هدف؛ تحقیق بازار؛ محاسبه قیمت تمام‌شده و حاشیه سود؛ طراحی سیستم قیمت‌گذاری صادراتی؛ تعیین استانداردهای لازم</td></tr>
+                <tr><td>۲</td><td><strong>برندینگ</strong></td><td>ایجاد هویت بصری بین‌المللی؛ طراحی لوگو، کاتالوگ، کمپانی پروفایل؛ ثبت برند؛ طراحی وب‌سایت دو/سه‌زبانه</td></tr>
+                <tr><td>۳</td><td><strong>رهبری</strong></td><td>تدوین بیزینس پلن؛ تعیین چشم‌انداز و مأموریت؛ ایجاد OKR سالیانه؛ برنامه‌ریزی حضور در اکوسیستم (اتاق بازرگانی، نمایشگاه‌ها)</td></tr>
+                <tr><td>۴</td><td><strong>مدیریت منابع انسانی</strong></td><td>طراحی چارت سازمانی؛ تدوین شرح وظایف؛ تعیین KPIهای هر نقش؛ برگزاری جلسات کوچینگ اختصاصی</td></tr>
+                <tr><td>۵</td><td><strong>بازاریابی</strong></td><td>تحقیقات بازار هدف؛ شناسایی مشتریان بالقوه؛ طراحی استراتژی ورود به بازار؛ تولید محتوای چندزبانه</td></tr>
+                <tr><td>۶</td><td><strong>فروش</strong></td><td>طراحی قیف فروش صادراتی؛ تدوین اسکریپت مذاکره؛ تعیین فرآیند تبدیل سرنخ به مشتری</td></tr>
+                <tr><td>۷</td><td><strong>مدیریت مالی</strong></td><td>محاسبه هزینه‌های صادراتی؛ مدیریت ریسک ارزی؛ طراحی سیستم پاداش بر اساس عملکرد</td></tr>
+            </table>
+        </div>
+
+        <h3>ابزارهای کلیدی در هر سیستم (بر اساس Road Map Starter)</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>سیستم</th><th>ابزارهای پیشنهادی</th></tr>
+                <tr><td>مدیریت محصول</td><td>BMC، PRL، FAB، MRS</td></tr>
+                <tr><td>برندینگ</td><td>VMB، VBI، 4EBT، SOM</td></tr>
+                <tr><td>رهبری</td><td>OKR، BGS، BPB، FDB</td></tr>
+                <tr><td>HR</td><td>ORG، JOD، KPI، PBCM</td></tr>
+                <tr><td>بازاریابی</td><td>FUN، 1PMS، CEM، COJ</td></tr>
+                <tr><td>فروش</td><td>SGF، 3S، STS، NEF</td></tr>
+                <tr><td>مدیریت مالی</td><td>FIS، FPR، MHK</td></tr>
+            </table>
+        </div>
+
+        <h3>برنامه هفتگی ماه اول (بر اساس Action Plan.xlsx)</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>هفته</th><th>فعالیت‌های کلیدی</th><th>ابزارهای مورد استفاده</th></tr>
+                <tr><td>هفته ۱</td><td>تدوین OKR سالیانه؛ آغاز تحقیقات بازار؛ طراحی لوگو و هویت بصری</td><td>OKR، BGS، VBI</td></tr>
+                <tr><td>هفته ۲</td><td>تکمیل بیزینس پلن؛ تعیین چارت سازمانی اولیه؛ طراحی کاتالوگ و کمپانی پروفایل</td><td>BPB، ORG، 4EBT</td></tr>
+                <tr><td>هفته ۳</td><td>محاسبه قیمت تمام‌شده؛ تحلیل رقبا؛ راه‌اندازی وب‌سایت و صفحات شبکه‌های اجتماعی</td><td>PRL، MRS، SOM</td></tr>
+                <tr><td>هفته ۴</td><td>برگزاری جلسه کوچینگ اختصاصی؛ مرور پیشرفت؛ تنظیم برنامه هفته‌های آینده</td><td>PBCM، BCM</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="section new-section" id="s7">
+        <h2><span class="icon">۷</span> مدیریت ریسک و تضمین کیفیت <span class="update-badge">جدید</span></h2>
+
+        <h3>ریسک‌های کلیدی و راهکارها</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>ریسک</th><th>احتمال</th><th>تأثیر</th><th>راهکار</th></tr>
+                <tr><td>تغییر نیازمندی‌ها در حین توسعه</td><td>زیاد</td><td>بالا</td><td>توسعه چابک با تحویل هر ۲ هفته؛ مشارکت کارفرما در بازبینی‌ها</td></tr>
+                <tr><td>هزینه بالای OpenAI (Whisper + GPT-4)</td><td>متوسط</td><td>بالا</td><td>استفاده از gpt-3.5-turbo برای تحلیل‌های سبک؛ کش کردن نتایج؛ بهینه‌سازی پرامپت</td></tr>
+                <tr><td>کیفیت پایین صوت یا نویز</td><td>متوسط</td><td>متوسط</td><td>پیش‌پردازش صوت در Cloud Code؛ ارائه راهنمای کیفیت ضبط به کاربران</td></tr>
+                <tr><td>تشخیص نادرست تسک‌ها</td><td>متوسط</td><td>متوسط</td><td>امکان ویرایش دستی تسک‌ها توسط کاربر؛ بهبود مستمر پرامپت‌ها</td></tr>
+                <tr><td>قطع سرویس OpenAI</td><td>کم</td><td>بالا</td><td>طراحی Fallback (ذخیره داده و Retry) و اعلان به مدیر</td></tr>
+            </table>
+        </div>
+
+        <h3>تضمین کیفیت</h3>
+        <ul>
+            <li><strong>کد:</strong> استفاده از استانداردهای PSR، بررسی کد توسط حداقل دو عضو تیم</li>
+            <li><strong>تست:</strong> تست‌های واحد، یکپارچه‌سازی، بار و امنیت در هر فاز</li>
+            <li><strong>مستندات:</strong> به‌روزرسانی مستندات فنی و کاربردی هم‌زمان با توسعه</li>
+            <li><strong>پشتیبانی:</strong> ۳ ماه پشتیبانی رایگان پس از تحویل نهایی</li>
+        </ul>
+    </div>
+
+    <div class="section" id="s8">
+        <h2><span class="icon">۸</span> نقشه راه هزینه، تعهدات و شرایط همکاری <span class="update-badge">نهایی</span></h2>
+
+        <div class="highlight-box" style="background: #E3F2FD; border-right-color: #1565C0;">
+            <p style="font-size:1.2rem; font-weight:700; color:var(--primary-dark);">
+                💰 مبلغ کل پروژه (توسعه اولیه): <span style="color:var(--accent);">۳۰۰,۰۰۰,۰۰۰ تومان</span>
+            </p>
+            <p style="font-size:0.9rem; color:var(--text-secondary);">
+                این مبلغ شامل کلیه هزینه‌های طراحی، توسعه، پیاده‌سازی و تحویل نسخه نهایی سیستم مطابق با پروپوزال می‌باشد.
+            </p>
+        </div>
+
+        <h3>📋 برنامه پرداخت (بر اساس تحویل فازها)</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr>
+                    <th style="width:15%;">مرحله</th>
+                    <th style="width:35%;">شرح تحویل</th>
+                    <th style="width:15%;">درصد</th>
+                    <th style="width:20%;">مبلغ (تومان)</th>
+                    <th style="width:15%;">زمان پرداخت</th>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-blue">مرحله ۱</span></td>
+                    <td><strong>پیش‌پرداخت + تحویل فاز ۱</strong><br><small>امضای قرارداد + پروپوزال نهایی مصوب</small></td>
+                    <td>۳۰٪</td>
+                    <td>۹۰,۰۰۰,۰۰۰</td>
+                    <td>امضای قرارداد</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-orange">مرحله ۲</span></td>
+                    <td><strong>تحویل فاز ۲ (MVP)</strong><br><small>نسخه قابل ارائه با قابلیت آپلود و تحلیل ساده</small></td>
+                    <td>۲۰٪</td>
+                    <td>۶۰,۰۰۰,۰۰۰</td>
+                    <td>پایان فاز ۲</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-purple">مرحله ۳</span></td>
+                    <td><strong>تحویل فاز ۴ (هسته AI)</strong><br><small>موتور تحلیل با دقت >۸۵٪ در استخراج تسک</small></td>
+                    <td>۲۰٪</td>
+                    <td>۶۰,۰۰۰,۰۰۰</td>
+                    <td>پایان فاز ۴</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-gold">مرحله ۴</span></td>
+                    <td><strong>تحویل فاز ۵ (اتوماسیون کامل)</strong><br><small>یکپارچه‌سازی n8n و Cloud Code</small></td>
+                    <td>۱۰٪</td>
+                    <td>۳۰,۰۰۰,۰۰۰</td>
+                    <td>پایان فاز ۵</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-green">مرحله ۵</span></td>
+                    <td><strong>تحویل نهایی</strong><br><small>پس از استقرار، آموزش و انتقال دانش</small></td>
+                    <td>۲۰٪</td>
+                    <td>۶۰,۰۰۰,۰۰۰</td>
+                    <td>پایان فاز ۷</td>
+                </tr>
+                <tr style="background: var(--primary); color:white; font-weight:700;">
+                    <td colspan="2">جمع کل</td>
+                    <td>۱۰۰٪</td>
+                    <td>۳۰۰,۰۰۰,۰۰۰</td>
+                    <td>—</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>📦 موارد مورد نیاز از کارفرما برای شروع</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th style="width:30%;">مورد</th><th>توضیحات</th></tr>
+                <tr><td>مستندات فرآیندهای کسب‌وکار</td><td>فایل‌های اکسل، ورد و ویدیوهای آموزشی (ارسال شده)</td></tr>
+                <tr><td>دسترسی به سرور</td><td>برای استقرار نهایی (پس از فاز ۶)</td></tr>
+                <tr><td>دسترسی به دامنه</td><td>برای راه‌اندازی وب‌سایت و پلتفرم</td></tr>
+                <tr><td>اطلاعات برندینگ</td><td>لوگو، رنگ‌های سازمانی، هویت برند</td></tr>
+                <tr><td>همکاری تیم داخلی</td><td>برای جلسات بازبینی، تأیید فازها و آموزش</td></tr>
+            </table>
+        </div>
+
+        <h3>🔄 هزینه‌های جاری (پس از تحویل)</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th style="width:25%;">آیتم</th><th style="width:35%;">توضیحات</th><th style="width:20%;">هزینه تقریبی</th><th style="width:20%;">نحوه پرداخت</th></tr>
+                <tr>
+                    <td><strong>دامنه</strong></td>
+                    <td>ثبت و تمدید سالانه دامنه</td>
+                    <td>≈ ۲,۰۰۰,۰۰۰ تومان/سال</td>
+                    <td>سالانه</td>
+                </tr>
+                <tr>
+                    <td><strong>سرور اختصاصی</strong></td>
+                    <td>پلن irBMServer-ECONOMY02 از پارس پک</td>
+                    <td>۱۵,۰۰۰,۰۰۰ تومان/ماه</td>
+                    <td>ماهیانه (از زمان شروع زیرساخت)</td>
+                </tr>
+                <tr>
+                    <td><strong>API هوش مصنوعی</strong></td>
+                    <td>مصرف OpenAI (Whisper + GPT-4) — با تضمین ۱۰۰٪ به‌صرفه‌سازی</td>
+                    <td>متغیر (وابسته به تعداد کاربران)</td>
+                    <td>مصرفی</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>🛠️ پشتیبانی و توسعه آتی</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th style="width:30%;">نوع خدمات</th><th>شرح</th><th>هزینه</th></tr>
+                <tr>
+                    <td><strong>پشتیبانی رایگان</strong></td>
+                    <td>پشتیبانی فنی، رفع باگ، بکاپ‌گیری، آپدیت‌های امنیتی و نگهداری</td>
+                    <td><span class="badge badge-green">رایگان</span> تا ۳ ماه پس از تحویل</td>
+                </tr>
+                <tr>
+                    <td><strong>پشتیبانی پس از ۳ ماه</strong></td>
+                    <td>مدیریت و پشتیبانی مشتریان، کال‌سنتر، توسعه‌های جزئی، به‌روزرسانی‌های معمول</td>
+                    <td>توافقی (بر اساس لیست فعالیت‌ها)</td>
+                </tr>
+                <tr>
+                    <td><strong>توسعه‌های جدید</strong></td>
+                    <td>توسعه‌های اساسی، پیچیده و بزرگ که خارج از محدوده پروپوزال است</td>
+                    <td>به‌عنوان پروژه جداگانه هزینه‌گذاری می‌شود</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="gift-section">
+            <h3>🎁 هدیه ویژه تیم Code Packs</h3>
+            <p style="color:rgba(255,255,255,0.9); font-size:1.05rem;">
+                تیم Code Packs به عنوان <strong>هدیه همکاری</strong>، یک <strong>وب‌سایت اینتراکتیو حرفه‌ای و کامل</strong> برای معرفی این پلتفرم و همچنین یک <strong>لندینگ پیج اختصاصی</strong> برای جذب مشتری و معرفی برند شما طراحی و پیاده‌سازی می‌کند.
+            </p>
+            <ul style="color:rgba(255,255,255,0.85);">
+                <li>✅ طراحی کاملاً اختصاصی — بدون استفاده از هیچ قالب یا کد آماده‌ای</li>
+                <li>✅ رابط کاربری مدرن، واکنش‌گرا و بهینه‌شده برای موتورهای جستجو</li>
+                <li>✅ فرم‌های تعاملی، نمایش پویای محتوا و سیستم تماس پیشرفته</li>
+                <li>✅ نمایش پلتفرم، قابلیت‌ها، مزیت‌ها و نمونه‌های استفاده</li>
+                <li>✅ ساختار مناسب برای بازاریابی دیجیتال و جذب مشتریان جدید</li>
+            </ul>
+            <div style="margin-top:16px;">
+                <span class="gift-badge">🎯 ارزش تقریبی: حداقل ۶۰,۰۰۰,۰۰۰ تومان</span>
+                <div class="gift-value">✨ به صورت کاملاً رایگان ✨</div>
+            </div>
+            <p style="color:rgba(255,255,255,0.6); font-size:0.85rem; margin-top:12px;">
+                این وب‌سایت می‌تواند به عنوان یک ابزار قدرتمند برای معرفی برند، جذب مشتری و نمایش توانمندی‌های پلتفرم شما عمل کند.
+            </p>
+
+            <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,215,0,0.2);">
+                <h4 style="color:var(--gift-gold); font-size:1.1rem; margin-bottom:8px;">📋 فرم‌های هوشمند لیدگیری</h4>
+                <p style="color:rgba(255,255,255,0.8); font-size:0.95rem;">
+                    در این وب‌سایت، <strong>فرم‌های هوشمند و پویا</strong> برای دریافت درخواست مشتریان (لید) طراحی می‌شود. کاربران می‌توانند به‌راحتی درخواست ثبت‌نام، مشاوره یا اطلاعات بیشتر را ارسال کنند و داده‌های آن‌ها به‌صورت خودکار در سیستم مدیریت مشتریان (CRM) شما ذخیره و پیگیری شود.
+                </p>
+                <ul style="color:rgba(255,255,255,0.85); margin-top:8px; list-style-type:disc; padding-right:20px;">
+                    <li>📝 فرم‌های ثبت درخواست مشاوره و همکاری</li>
+                    <li>📊 مدیریت و دسته‌بندی خودکار لیدها</li>
+                    <li>📨 ارسال خودکار ایمیل تأیید و اطلاع‌رسانی به کاربر</li>
+                    <li>📈 داشبورد اختصاصی برای پیگیری وضعیت لیدها</li>
+                    <li>🔔 نوتیفیکیشن لحظه‌ای برای تیم فروش و بازاریابی</li>
+                </ul>
+                <div style="margin-top:8px; background:rgba(255,215,0,0.08); padding:10px 16px; border-radius:10px; border-right:3px solid var(--gift-gold);">
+                    <span style="color:var(--gift-gold); font-weight:600;">✅ این سیستم فرم‌های هوشمند نیز به‌عنوان بخشی از هدیه، به‌صورت کاملاً رایگان پیاده‌سازی می‌شود.</span>
+                </div>
+            </div>
+        </div>
+
+        <h3>🤝 تعهدات طرفین</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:16px 0;">
+            <div style="background:var(--surface-solid); padding:20px; border-radius:var(--radius-sm); border:1px solid var(--border);">
+                <h4 style="color:var(--primary); margin-bottom:8px;">تعهدات Code Packs</h4>
+                <ul style="font-size:0.9rem;">
+                    <li>ارائه تیم توسعه‌دهنده متخصص (۴ نفر اصلی)</li>
+                    <li>تحویل پروژه در بازه زمانی تعیین‌شده</li>
+                    <li>ارائه مستندات کامل فنی و کاربردی</li>
+                    <li>آموزش تیم کارفرما</li>
+                    <li>۳ ماه پشتیبانی رایگان</li>
+                </ul>
+            </div>
+            <div style="background:var(--surface-solid); padding:20px; border-radius:var(--radius-sm); border:1px solid var(--border);">
+                <h4 style="color:var(--primary); margin-bottom:8px;">تعهدات کارفرما</h4>
+                <ul style="font-size:0.9rem;">
+                    <li>تأمین به‌موقع مستندات و اطلاعات</li>
+                    <li>همکاری در جلسات بازبینی و تأیید فازها</li>
+                    <li>تأمین زیرساخت‌های سرور و خدمات ابری</li>
+                    <li>پرداخت به‌موقع طبق توافق</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="background: #F3E5F5; border-right-color: #6A1B9A;">
+            <p style="font-weight:700; font-size:1.1rem; color:var(--primary-dark);">
+                📌 خلاصه نقشه راه هزینه
+            </p>
+            <ul style="margin:8px 0 0 20px; font-size:0.95rem;">
+                <li><strong>هزینه توسعه اولیه:</strong> ۳۰۰,۰۰۰,۰۰۰ تومان (پرداخت مرحله‌ای بر اساس تحویل فازها)</li>
+                <li><strong>پشتیبانی:</strong> ۳ ماه رایگان، سپس توافقی</li>
+                <li><strong>هدیه:</strong> وب‌سایت حرفه‌ای با فرم‌های هوشمند لیدگیری به ارزش ۶۰,۰۰۰,۰۰۰ تومان — رایگان</li>
+                <li><strong>هزینه‌های جاری:</strong> دامنه (سالانه) + سرور (ماهیانه) + API (مصرفی)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="s9">
+        <h2><span class="icon">۹</span> گزینه ویژه: ربات بله بیزنس کوچینگ <span class="update-badge">اختیاری</span></h2>
+
+        <div class="bplus-section">
+            <h3>🤖 ربات بله بیزنس کوچینگ</h3>
+            <p style="color:rgba(255,255,255,0.9); font-size:1.05rem;">
+                از آنجایی که <strong>پلتفرم بله</strong> تنها پلتفرم ایرانی است که حتی در زمان قطعی کامل اینترنت هم در داخل ایران و هم خارج از ایران کار کرده و کار می‌کند، می‌توانیم یک سری ابزارها و اتوماسیون‌ها را در قالب <strong>ربات بله</strong> پیاده‌سازی کنیم.
+            </p>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:16px 0;">
+                <div style="background:rgba(255,255,255,0.05); border-radius:var(--radius-sm); padding:16px; border:1px solid rgba(255,255,255,0.08);">
+                    <h4 style="color:#90caf9; margin-bottom:6px;">✨ قابلیت‌های کلیدی</h4>
+                    <ul style="color:rgba(255,255,255,0.85); font-size:0.9rem;">
+                        <li>📝 ثبت گزارش پیشرفت کاربران از طریق متن</li>
+                        <li>🧠 تشخیص خودکار تسک‌های انجام‌شده از متن گزارش</li>
+                        <li>📊 نمایش وضعیت فعلی کاربر در مسیر پروژه</li>
+                        <li>🔔 ارسال نوتیفیکیشن و یادآوری به کاربر</li>
+                        <li>📢 اطلاع‌رسانی‌های کلی و اعلان‌های سیستمی</li>
+                    </ul>
+                </div>
+                <div style="background:rgba(255,255,255,0.05); border-radius:var(--radius-sm); padding:16px; border:1px solid rgba(255,255,255,0.08);">
+                    <h4 style="color:#90caf9; margin-bottom:6px;">⚙️ تعامل هوشمند</h4>
+                    <ul style="color:rgba(255,255,255,0.85); font-size:0.9rem;">
+                        <li>💬 چت‌بات هوشمند داخل خود بله</li>
+                        <li>📋 امکان انجام اکثر فعالیت‌های مهم برنامه در بله</li>
+                        <li>📌 پیگیری خودکار وظایف و مراحل</li>
+                        <li>📈 گزارش‌گیری سریع از وضعیت پروژه‌ها</li>
+                        <li>🔄 همگام‌سازی کامل با پلتفرم اصلی</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background:rgba(66,165,245,0.08); border-radius:var(--radius-sm); padding:16px; margin:12px 0; border-right:3px solid #42a5f5;">
+                <p style="color:rgba(255,255,255,0.9); font-size:0.95rem;">
+                    <strong>نحوه کار:</strong> کاربر به‌جای طی کردن مراحل مختلف در پنل، به‌راحتی وارد بله می‌شود و گزارش کارهای انجام‌شده را به ربات می‌فرستد. ربات از روی متن، متوجه می‌شود کدام تسک‌ها انجام شده، وضعیت کاربر در چه مرحله‌ای است و گام بعدی چه کاری باید انجام دهد.
+                </p>
+            </div>
+
+            <div style="margin-top:16px;">
+                <span class="bplus-badge">💰 هزینه اضافه‌سازی: ۵۰,۰۰۰,۰۰۰ تومان</span>
+                <div class="bplus-value">در صورت افزودن از ابتدای پروژه، مبلغ کل پروژه به ۳۵۰,۰۰۰,۰۰۰ تومان افزایش می‌یابد</div>
+            </div>
+
+            <div style="margin-top:16px; background:rgba(255,255,255,0.04); border-radius:var(--radius-sm); padding:14px; border:1px solid rgba(255,255,255,0.06);">
+                <p style="color:rgba(255,255,255,0.75); font-size:0.9rem;">
+                    <strong>📌 نکته مهم:</strong> در صورتی که کارفرما بخواهد این سیستم <strong>پس از تکمیل نهایی پروژه</strong> اضافه شود، هزینه آن به‌صورت جداگانه محاسبه خواهد شد. اما در صورت انتخاب این گزینه <strong>در ابتدای کار</strong>، ساختار کلی پروژه با توجه به حضور این سیستم جلو می‌رود و یکپارچگی کامل با پلتفرم اصلی تضمین می‌شود.
+                </p>
+            </div>
+
+            <div style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap;">
+                <span style="background:rgba(66,165,245,0.12); color:#90caf9; padding:4px 14px; border-radius:20px; font-size:0.8rem; border:1px solid rgba(66,165,245,0.2);">📱 قابل استفاده در همه شرایط</span>
+                <span style="background:rgba(66,165,245,0.12); color:#90caf9; padding:4px 14px; border-radius:20px; font-size:0.8rem; border:1px solid rgba(66,165,245,0.2);">🧠 هوش مصنوعی اختصاصی</span>
+                <span style="background:rgba(66,165,245,0.12); color:#90caf9; padding:4px 14px; border-radius:20px; font-size:0.8rem; border:1px solid rgba(66,165,245,0.2);">🔗 یکپارچه با پلتفرم</span>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="background:#E8F5E9; border-right-color:#2E7D32;">
+            <p style="font-weight:700; color:var(--primary-dark);">
+                💡 پیشنهاد تیم Code Packs
+            </p>
+            <p style="font-size:0.95rem;">
+                با توجه به مزیت‌های بی‌نظیر پلتفرم بله در شرایط خاص، توصیه می‌شود این گزینه از ابتدای پروژه فعال شود تا کاربران شما در هر شرایطی به سیستم دسترسی داشته باشند و فرآیندهای پیگیری و گزارش‌دهی با سهولت بیشتری انجام شود.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Code Packs – Digital Solutions Company</strong></p>
+        <p>تاریخ: مرداد ۱۴۰۵</p>
+        <p style="margin-top: 8px; color: var(--accent);">✨ نسخه ۳.۰ – مبتنی بر نتایج جلسه و مستندات تکمیلی ✨</p>
+    </div>
+</div>
+</body>
+</html>
